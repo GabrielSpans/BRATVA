@@ -47,10 +47,10 @@ client.on('guildMemberAdd', async member => {
     const ei = invites[member.guild.id];
     invites[member.guild.id] = guildInvites;
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
-    const inviter = client.users.get(invite.inviter.id);
-    const logChannel = member.guild.channels.find(channel => channel.name === "👮│staff-log");
-    let embed = new Discord.RichEmbed()
-    .setAuthor(`${member.user.tag} | Bem-Vindo(a)!`, member.user.displayAvatarURL)
+    const inviter = client.users.cache.get(invite.inviter.id);
+    const logChannel = member.guild.channels.cache.find(channel => channel.name === "👮│staff-log");
+    let embed = new Discord.MessageEmbed()
+    .setAuthor(`${member.user.tag} | Bem-Vindo(a)!`, member.user.displayAvatarURL())
     .setColor("RANDOM")
     .addField("Entrou no servidor:", `${member.user.tag}`)
     .addField("Convite:", `https://discord.gg/${invite.code}`)

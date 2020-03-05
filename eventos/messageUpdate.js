@@ -11,14 +11,14 @@ module.exports = async (client, oldMessage, newMessage) => {
   if(!channel) return;
 
   if (onoff == true) {
-    let logs = oldMessage.guild.channels.get(channel)
+    let logs = oldMessage.guild.channels.cache.get(channel)
 
         if(oldMessage.content === newMessage.content){
           return;
         }
       
-          let logEmbed = new Discord.RichEmbed()
-          .setThumbnail(oldMessage.author.avatarURL)
+          let logEmbed = new Discord.MessageEmbed()
+          .setThumbnail(oldMessage.author.avatarURL())
           .setColor("ff756")
           .setAuthor(" | Mensagem editada")
           .setDescription(`Autor: <@${oldMessage.author.id}>\nCanal: <#${oldMessage.channel.id}>`)

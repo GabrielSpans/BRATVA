@@ -6,10 +6,10 @@ module.exports.run = async (client, message, args) => {
 
 try {
 
-    await message.reply("O bot foi desligado.");
+    await message.channel.send("<a:emoji_31:675686482283069480> | O Bot Foi Desligado Com Sucesso!");
     process.exit()
 } catch(e) {
-    message.channel.send(`ERROR: ${e.message}`)
+    message.channel.send(`<a:emoji_30:675686441459646505> | Um Erro Foi Detectado!\nErro: \`\`\`${e.message}\`\`\``)
 }
 }
 

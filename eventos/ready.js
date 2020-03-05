@@ -10,13 +10,12 @@ module.exports = (client) => {
   /*let a = client.guilds.map(n => n.name).join(",\n ")   
   console.log(a)*/
   
-        console.log(`${client.user.username} foi iniciado, com ${client.users.size} usuários, em ${client.guilds.size} servidores e com ${client.commands.size} Comandos.`); 
+        console.log(`${client.user.username} foi iniciado, com ${client.users.cache.size} usuários, em ${client.guilds.cache.size} servidores e com ${client.commands.size} Comandos.`); 
         //client.user.setActivity(`${client.guilds.size} servidores.`);
 
         let statuses = [
-          `.help | ${client.guilds.size} Servidores!`,
-          `Use .help para ver meus comandos!`,
-          `.help | ${client.users.size} Usúarios!`,
+          `.help | ${client.guilds.cache.size} Servidores!`,
+          `.help | ${client.users.cache.size} Usúarios!`,
           `.help | ${client.commands.size} Comandos!`
         ]
 

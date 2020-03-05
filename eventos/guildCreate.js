@@ -8,7 +8,7 @@ module.exports = (client, guild) => {
   Agora estou em: ${client.guilds.size} Servidores!`);
 
   
-  client.channels.get('656308543858802698').send(`Entrei em um servidor!
+  client.channels.cache.get('656308543858802698').send(`Entrei em um servidor!
   ID: ${guild.id}
   Nome: ${guild.name}
   Dono: ${guild.owner.user.tag} (${guild.owner.id})

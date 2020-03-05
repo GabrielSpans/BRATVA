@@ -14,7 +14,7 @@ module.exports= function (client, canal) {
       if (onoff == true) {
 
 
-        let logs = canal.guild.channels.get(channel)
+        let logs = canal.guild.channels.cache.get(channel)
 
         let embed = new Discord.RichEmbed()
 

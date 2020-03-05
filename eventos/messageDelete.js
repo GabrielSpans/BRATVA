@@ -11,7 +11,7 @@ module.exports = async(client, message) => {
   if(!channel) return;
 
   if (onoff == true) {
-    let logs = message.guild.channels.get(channel)
+    let logs = message.guild.channels.cache.get(channel)
 
         if (!message.guild.me.hasPermission('MANAGE_CHANNELS') && !logs) { 
           console.log('O canal de logs não existe e tentou criar o canal, mas não tenho permissões')
@@ -27,7 +27,7 @@ module.exports = async(client, message) => {
           user = message.author.id
         }
 
-        let embed = new Discord.RichEmbed()
+        let embed = new Discord.MessageEmbed()
           .setColor("RANDOM")
           .setAuthor(` | Mensagem Apagada`)
           .setDescription(`**Mensagem de:** <@${message.author.id}>\n**Apaga por:** <@${entry.executor.id}>\n**Canal:** <#${message.channel.id}>`)

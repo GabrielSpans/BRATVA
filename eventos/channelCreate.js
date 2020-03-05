@@ -14,9 +14,9 @@ module.exports = function(client, canal) {
       if (onoff == true) {
 
 
-        let logs = canal.guild.channels.get(channel)
+        let logs = canal.guild.channels.cache.get(channel)
 
-        let embed = new Discord.RichEmbed()
+        let embed = new Discord.MessageEmbed()
 
         .setAuthor("Canais | Canal Criado")
         .setDescription(`Canal criado <#${canal.id}>.\nID: **${canal.id}** | Tipo: ${canal.type}`)

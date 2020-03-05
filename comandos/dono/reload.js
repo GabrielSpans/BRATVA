@@ -8,7 +8,7 @@ module.exports.run = async (client, message, args) => {
 
     if (!args[0]) {
 
-        let embed = new Discord.RichEmbed()
+        let embed = new Discord.MessageEmbed()
         .setDescription("=Reload=\n1 - diversão\n\n2 - dono\n\n3 - economia\n\n4 - info\n\n5 - moderação")
         message.channel.send(embed)
     }  else if(args[0] == "1") {

@@ -15,7 +15,7 @@ if(!channel) return;
 
 
 if (onoff == true) {
-  let logs = oldMember.guild.channels.get(channel)
+  let logs = oldMember.guild.channels.cache.get(channel)
  
         var membros = [oldMember.nickname, newMember];
    
@@ -32,7 +32,7 @@ if (onoff == true) {
         if(oldMember.nickname != newMember.nickname)
         {
 
-         let logEmbed = new Discord.RichEmbed()
+         let logEmbed = new Discord.MessageEmbed()
        .setColor("RANDOM")
        .setAuthor("Membros | Apelido")
        .setDescription(`Autor: <@${newMember.user.id}>`)

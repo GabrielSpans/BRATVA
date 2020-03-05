@@ -11,14 +11,14 @@ module.exports = (client, member, message) => {
   if(!wChan) return;
 
 
-        let embed = new Discord.RichEmbed()
+        let embed = new Discord.MessageEmbed()
         .setColor('RANDOM')
-        .setThumbnail(member.user.displayAvatarURL)
-        .setAuthor(`👋 | Saida`, member.user.displayAvatarURL)
+        .setThumbnail(member.user.displayAvatarURL())
+        .setAuthor(`👋 | Saida`, member.user.displayAvatarURL())
         .setDescription(`**${member.user.tag}** Saiu do servidor.`)
         .setFooter(`ID do usúario: ${member.user.id}`)
 
         
-        member.guild.channels.get(wChan).send(embed)
+        member.guild.channels.cache.get(wChan).send(embed)
     
 }
