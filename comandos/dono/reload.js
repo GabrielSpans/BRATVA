@@ -1,10 +1,10 @@
 const Discord = require("discord.js")
 
 module.exports.run = async (client, message, args) => {
+
+    try {
     
     if (message.author.id !== "292708406278619136") return message.channel.send(`<@${message.author.id}> | Você não é meu dono!`)
-
-    
 
     if (!args[0]) {
 
@@ -72,6 +72,10 @@ module.exports.run = async (client, message, args) => {
     }
     message.channel.send(`O comando \`${args[1].toUpperCase()}\` foi relogado!`)
 }
+
+} catch(e) {
+    return message.channel.send(`<a:emoji_30:675686441459646505> | Um Erro Foi Descorberto!\nErro:\n${e}`)
+ }
     
 }
 

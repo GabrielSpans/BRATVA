@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 
 module.exports.run = async (client, message, args) => {
+    
     if (message.author.id !== "292708406278619136") return message.channel.send(`<@${message.author.id}> | Você não é meu dono!`)
 
 

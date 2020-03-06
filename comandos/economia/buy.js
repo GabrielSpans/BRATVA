@@ -3,6 +3,8 @@ const db = require('quick.db')
 
 module.exports.run = async (bot, message, args) => {
 
+    try{
+
     let user = message.author;
 
     let author = db.fetch(`money_${message.guild.id}_${user.id}`)
@@ -73,9 +75,13 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send(Embed3)
     }
 
+} catch(e) {
+    return message.channel.send(`<a:emoji_30:675686441459646505> | Um Erro Foi Descorberto!\nErro:\n${e}`)
+ }
+
 }
   
   module.exports.help = {
     name:"buy",
-    aliases: [""]
+    aliases: ["comprar"]
   }

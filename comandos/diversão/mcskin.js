@@ -8,11 +8,10 @@ module.exports.run = async (client, message, args) => {
       
     let embed = new Discord.MessageEmbed()
     
-    .setTitle(`${args[0]}`)
     .setColor("ff756")
-    .setImage(`https://mc-heads.net/body/${args[0]}`)
-    .setDescription(`Instale a skin clicando [aqui](https://mc-heads.net/download/${args[0]})`)
-    .setFooter(`Comando solicitado por: ${message.author.tag}`, message.author.avatarURL())
+    .setImage(`https://minotar.net/armor/body/${args[0]}/490.png`)
+    //.setDescription(`Instale a skin clicando [aqui](https://mc-heads.net/download/${args[0]})`)
+    .setFooter(`${message.author.tag}`, message.author.avatarURL())
     .setTimestamp(new Date())
     message.channel.send(embed)
 };

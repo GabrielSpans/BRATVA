@@ -3,7 +3,7 @@ const superagent = require('superagent');
 
 module.exports.run = async (client, message, args) => {
 
-
+    try {
     let msg = await message.channel.send("Gerando...").then(m => m.delete({ timeout: 5000, reason: 'Gerador do cat.' }))
 
     let {body} = await superagent
@@ -21,6 +21,9 @@ module.exports.run = async (client, message, args) => {
 
     message.delete();
 
+} catch(e) {
+    return message.channel.send(`<a:emoji_30:675686441459646505> | Um Erro Foi Descorberto!\nErro:\n${e}`)
+ }
 }
 
 module.exports.help = {

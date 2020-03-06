@@ -2,6 +2,8 @@ const Discord = require('discord.js')
 
 module.exports.run = async (client, message, args) => {
 
+    try {
+
     if (message.author.id !== "292708406278619136") return message.channel.send(`<@${message.author.id}> | Você não é meu dono!`)
 
     message.delete()
@@ -50,6 +52,9 @@ let reaction = await msg2.reactions.cache.find(val => val.name = r.emoji.name)
 coletor()
 })
    
+} catch(e) {
+    return message.channel.send(`<a:emoji_30:675686441459646505> | Um Erro Foi Descorberto!\nErro:\n${e}`)
+ }
 
 }
 

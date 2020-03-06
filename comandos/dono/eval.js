@@ -20,7 +20,7 @@ try {
 
 message.channel.send(embed)
 } catch(e) {
-  message.channel.send(e);
+  return message.channel.send(`<a:emoji_30:675686441459646505> | Um Erro Foi Descorberto!\nErro:\n${e}`)
 }
 }
 

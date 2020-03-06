@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 
 module.exports.run = async (client, message, args) => {
 
+    try {
 let replies = ['pedra', 'papel', 'tesoura'];
         let result = Math.floor((Math.random() * replies.length));
 
@@ -25,6 +26,10 @@ let replies = ['pedra', 'papel', 'tesoura'];
             if (replies[result] === 'tesoura') return message.channel.send('Eu venci!');
             else return message.channel.send('Você ganhou!');
         }
+
+    } catch(e) {
+        return message.channel.send(`<a:emoji_30:675686441459646505> | Um Erro Foi Descorberto!\nErro:\n${e}`)
+     }
 }
 
 module.exports.help = {

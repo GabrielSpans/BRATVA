@@ -2,6 +2,7 @@ const db = require("quick.db");
 
 module.exports.run = async (client, message, args) => {
 
+  try {
     if(message.author.id == "292708406278619136") {
 
         let user = client.users.cache.get(args[0]);
@@ -18,6 +19,10 @@ module.exports.run = async (client, message, args) => {
     }else{
       return message.channel.send(`<a:emoji_30:675686441459646505> | Você Não é Meu Dono Para Executar Esse Comando!`);
     }
+
+  } catch(e) {
+    return message.channel.send(`<a:emoji_30:675686441459646505> | Um Erro Foi Descorberto!\nErro:\n${e}`)
+ }
 
 }
 

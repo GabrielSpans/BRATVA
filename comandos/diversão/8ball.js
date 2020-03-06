@@ -2,7 +2,7 @@ const Discord = require("discord.js")
  
  module.exports.run = async (bot, message, args) => {
 
-    //!8ball question
+   try {
     if(!args[0]) return message.channel.send(`<a:emoji_30:675686441459646505> | Faça Uma Pergunta!`);
     let replies = ["Sim", "Não", "Como eu vou saber?", "Essa é a questão!", "Com certeza não!", "Logico!", "Por favor, não.", "Você ainda pergunta?", "Verdade", "Mentira", "Claro!", ];
 
@@ -10,6 +10,10 @@ const Discord = require("discord.js")
     let question = args.join(" ");
 
     message.reply(replies[result])
+
+   } catch(e) {
+      return message.channel.send(`<a:emoji_30:675686441459646505> | Um Erro Foi Descorberto!\nErro:\n${e}`)
+   }
 
 
  }

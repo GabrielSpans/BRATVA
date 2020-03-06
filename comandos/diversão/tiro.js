@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports.run = async (client, message, args) => {
-    
+
     let user = message.guild.member(message.mentions.users.first());
     if(!args[0]) return message.channel.send(`<a:emoji_30:675686441459646505> | Mencione um Usuário Válido Desse Servidor!`)
     if(!user) return message.channel.send('<a:emoji_30:675686441459646505> | Mencione um Usuário Válido Desse Servidor!');
@@ -22,6 +22,7 @@ module.exports.run = async (client, message, args) => {
         console.log(error);
         message.channel.send(error);
     }
+
 }
 
 module.exports.help = {

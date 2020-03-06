@@ -4,6 +4,7 @@ const ms = require("parse-ms");
 
 module.exports.run = async (bot, message, args) => { 
 
+  try{
   let user = message.author;
 
   let member = db.fetch(`money_${message.guild.id}_${user.id}`)
@@ -59,6 +60,11 @@ module.exports.run = async (bot, message, args) => {
   db.add(`bank_${message.guild.id}_${user.id}`, args[0])
   db.subtract(`money_${message.guild.id}_${user.id}`, args[0])
   }
+
+} catch(e) {
+  return message.channel.send(`<a:emoji_30:675686441459646505> | Um Erro Foi Descorberto!\nErro:\n${e}`)
+}
+
 }
 module.exports.help = {
   name:"deposit",

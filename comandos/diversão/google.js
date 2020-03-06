@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
+
 module.exports.run = async (client, message, args, emoji) => {
 
+    try {
     let google = args.slice(0).join('+');
     if(!google) return message.channel.send("<a:emoji_30:675686441459646505> | Defina um Argumento Válido para eu perquisar!")
 
@@ -17,6 +19,10 @@ module.exports.run = async (client, message, args, emoji) => {
     .setFooter(`Pesquisa solicitada por: ${message.author.tag}`, message.author.avatarURL())
           
     message.channel.send(embed);
+
+} catch(e) {
+    return message.channel.send(`<a:emoji_30:675686441459646505> | Um Erro Foi Descorberto!\nErro:\n${e}`)
+ }
   
 }
 
