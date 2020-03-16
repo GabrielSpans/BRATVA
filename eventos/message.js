@@ -56,7 +56,7 @@ module.exports = (client, message) => {
   }, 3000)
 
   if (command)
-  command.run(client, message, args, opts);
+  command.run(client, message, args, opts, database);
   /*try {
     commandfile.run(client, message, args, prefix);
   

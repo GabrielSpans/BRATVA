@@ -25,7 +25,7 @@ module.exports.run = async(client, message, args) => {
 
         .setAuthor(`${message.author.username}`, message.author.avatarURL)
         .setTitle("Infos comandos")
-        .setDescription("`.ping` **Veja o ping do bot** \n`.id` **Gera seu ID** \n`.avatar` **Veja seu ou o avatar de alguem!**\n`.botinfo` **Fique por dentro das informações do bot!** \n`.userinfo` **Pegue as informações do usuario!**\n`.serverinfo` **Pegue as informações do servidor!**\n`.finduser`  **Encontre um usúario!**") 
+        .setDescription("`.addemoji` **Adicione o Emoji Por Comando!**\n`.addrole` **Adicione Roles em Algum Usuário Mencionado!**\n`.avatar` **Veja o Seu ou de Outro Usuário o Avatar!**\n`.botinfo` **Informações do Bot**\n`.ping` **Veja o ping do bot** \n`.id` **Gera seu ID** \n`.avatar` **Veja seu ou o avatar de alguem!**\n`.botinfo` **Fique por dentro das informações do bot!** \n`.userinfo` **Pegue as informações do usuario!**\n`.serverinfo` **Pegue as informações do servidor!**\n`.finduser`  **Encontre um usúario!**") 
         .setColor("RANDOM")
         .setFooter(`${client.user.username} | Prefix: .`, client.user.avatarURL)
 		.setTimestamp();

@@ -1,4 +1,8 @@
 const Discord = require("discord.js");
+const moment = require("moment");
+require("moment-duration-format");
+const { contadorComandos } = require("../../eventos/command")
+const db = require('quick.db')
 
 const client = new Discord.Client()
 
@@ -6,6 +10,13 @@ let days = 00;
 let week = 00;
 
 module.exports.run = async (bot, message, args) => {
+
+  function checkDays(date) {
+    let now = new Date();
+    let diff = now.getTime() - date.getTime();
+    let days = Math.floor(diff / 86400000);
+    return days + (days == 1 ? " dia" : " dias") + " atrás";
+};
 
   let uptime = ``;
     let totalSeconds = (client.uptime / 1000);
@@ -33,32 +44,26 @@ module.exports.run = async (bot, message, args) => {
     }
     uptime += `${hours}0:${minutes}:${seconds}`;
 
-    let inline = true
-    let bicon = bot.user.displayAvatarURL;
-    let usersize = bot.users.size
-    let chansize = bot.channels.size
-    let uptimxd = bot.uptime 
-    let comandos = bot.commands.size
-    let servsize = bot.guilds.size
-    let date = client.users.createdAt
-    let botembed = new Discord.RichEmbed()
-    .setColor("#00ff00")
+    const duration = moment.duration(client.uptime).format(" D [dias], H [horas], m [minutos], s [segundos]");
+
+    let bicon = bot.user.displayAvatarURL();
+    let date = bot.user.createdAt
+    let comandos = db.get(`comando_${bot.user.id}`)
+
+    let botembed = new Discord.MessageEmbed()
+    .setAuthor(`Olá, eu me chamo B R A T V A!`, bot.user.displayAvatarURL())
+    .setColor("BLUE")
     .setThumbnail(bicon)
-    .addField("Nome do BOT", `${bot.user.username}`, inline)
-    .addField("Dono do Bot", "! O ઽραท「ᴏʟᴅ」#0001", inline )
-    .addField("Servers", `🛡 ${servsize}`, inline)
-    .addField("Canais", `📁 ${chansize}`, inline)
-    .addField("Usúarios", `${usersize}`, inline)
-    .addField("Comandos", `${comandos}`, inline)
-    .addField("Biblioteca do Bot", "Discord.js", inline)
-    .addField('Estou online a', uptime)
-    .addField('Criado em', formatDate('DD/MM/YYYY, às HH:mm:ss'))
-    .setFooter(`Informação sobre: ${bot.user.username}. Criado por: ! O ઽραท「ᴏʟᴅ」#0001`)
+    .setDescription(`<a:fixa:686684295644839966> Olá eu me chamo ${bot.user.username}, tenho 23 anos e sou um simples bot brasileiro para o Discord com vários comandos!\n\n<a:fixa:686684295644839966> Atualmente estou espalhando diversão em \*\*${bot.guilds.cache.size} servidores\*\* com \*\*${bot.commands.size} comandos\*\*. Desde ${message.channel.guild.createdAt.toUTCString().substr(0, 16)} (${checkDays(message.channel.guild.createdAt)}) venho tentanto trasnformar o mundo em um lugar melhor!\n\n<a:fixa:686684295644839966> Eu fui criado em <:js:675685205595652096> [Javascript](https://discord.js.org) utilizando <:node:686684261734023236> [node.js](https://nodejs.org).`)
     .setTimestamp()
     
     message.channel.send(botembed);
 
 }
+
+
+// e já executei ${comandos} comandos desde que eu acordei a \*\*${duration}\*\* atrás
+
 
 /**
  * @param {string} template

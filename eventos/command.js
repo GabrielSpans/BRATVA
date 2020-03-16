@@ -1,15 +1,21 @@
 const { readdirSync } = require("fs");
-
+const index = require("../index")
 const ascii = require("ascii-table");
+const db = require('quick.db')
+const Discord = require('discord.js')
 
 // Create a new Ascii table
 let table = new ascii("Comandos Logs");
 table.setHeading("Comandos", "Status");
 
-module.exports = (client) => {
-    // Read every commands subfolder
+//const Client = new Discord.Client()
+
+module.exports = async (client) => {
+
+    
+    
     readdirSync("./comandos/").forEach(dir => {
-        // Filter so we only have .js command files
+
         const commands = readdirSync(`./comandos/${dir}/`).filter(file => file.endsWith(".js"));
         for (let file of commands) {
             let pull = require(`../comandos/${dir}/${file}`);
@@ -25,6 +31,8 @@ module.exports = (client) => {
 
             if (pull.help.aliases && Array.isArray(pull.help.aliases)) pull.help.aliases.forEach(alias => client.aliases.set(alias, pull.help.name));
         }
+        //db.add(`comando_${client.user.id}`, 1)
     })
     console.log(table.toString());
+
 }

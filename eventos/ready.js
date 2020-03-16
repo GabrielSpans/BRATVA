@@ -11,7 +11,7 @@ module.exports = (client) => {
   console.log(a)*/
   
         console.log(`${client.user.username} foi iniciado, com ${client.users.cache.size} usuários, em ${client.guilds.cache.size} servidores e com ${client.commands.size} Comandos.`); 
-        //client.user.setActivity(`${client.guilds.size} servidores.`);
+        console.log(`[FIREBASE] O Banco de Dados FireBase Foi Logada!`)
 
         let statuses = [
           `.help | ${client.guilds.cache.size} Servidores!`,

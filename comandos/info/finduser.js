@@ -4,11 +4,11 @@ module.exports.run = async (bot, message, args) => {
     let users = bot.users;
 
     let searchTerm = args[0];
-    if(!searchTerm) return message.channel.send("Digite um termo para pesquisar!");
+    if(!searchTerm) return message.channel.send("<a:emoji_30:675686441459646505> | Digite o Nome do Indivíduo a Ser Procurado!");
 
     let matches = users.filter(u => u.tag.toLowerCase().includes(searchTerm.toLowerCase()));
     
-    message.channel.send(matches.map(u => u.tag));
+    message.channel.send(matches.cache.map(u => u.tag));
 
     message.delete();
 

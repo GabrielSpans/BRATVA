@@ -3,9 +3,34 @@ const Enmap = require("enmap");
 const client = new Discord.Client({disableEveryone: true, fetchAllMembers: true});
 const config = require('./config.json')
 const fs = require('fs');
+const { contadorComandos } = require("./eventos/command")
+const firebase = require("firebase")
+
+const low = require("lowdb")
+const FileSync = require('lowdb/adapters/FileSync')
+const adapter = new FileSync('banco.json')
+const db = low(adapter)
+
 
 const moment = require("moment")
 moment.locale("pt-BR")
+
+
+var firebaseConfig = {
+  apiKey: "AIzaSyBEiBwf7tbYOjtghAp0VF-mRDxF7_-O_k4",
+  authDomain: "bratva-cfed9.firebaseapp.com",
+  databaseURL: "https://bratva-cfed9.firebaseio.com",
+  projectId: "bratva-cfed9",
+  storageBucket: "bratva-cfed9.appspot.com",
+  messagingSenderId: "533193053795",
+  appId: "1:533193053795:web:f52021bf7bc119b0330a56",
+  measurementId: "G-GSDN2YWGDG"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const database = firebase.database();
+
 
 client.config = config;
 
@@ -46,7 +71,7 @@ client.on('guildMemberAdd', async member => {
   member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
     invites[member.guild.id] = guildInvites;
-    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const invite = guildInvites.cache.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.cache.get(invite.inviter.id);
     const logChannel = member.guild.channels.cache.find(channel => channel.name === "👮│staff-log");
     let embed = new Discord.MessageEmbed()
