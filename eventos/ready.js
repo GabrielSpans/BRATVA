@@ -9,9 +9,8 @@ const wait = require('util').promisify(setTimeout);
 module.exports = (client) => {
   /*let a = client.guilds.map(n => n.name).join(",\n ")   
   console.log(a)*/
-  
+  console.log(`[FIREBASE] O Banco de Dados FireBase Foi Logada!`)
         console.log(`${client.user.username} foi iniciado, com ${client.users.cache.size} usuários, em ${client.guilds.cache.size} servidores e com ${client.commands.size} Comandos.`); 
-        console.log(`[FIREBASE] O Banco de Dados FireBase Foi Logada!`)
 
         let statuses = [
           `.help | ${client.guilds.cache.size} Servidores!`,

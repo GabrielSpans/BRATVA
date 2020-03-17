@@ -2,6 +2,7 @@ const config = require("../config.json");
 const fs = require('fs')
 const ms = require('ms')
 const db = require('quick.db')
+const { database } = require('../banco.js')
 
 var cooldown = new Set()
 const map = new Map();
