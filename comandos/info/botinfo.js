@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const moment = require("moment");
 require("moment-duration-format");
-const { contadorComandos } = require("../../eventos/command")
+
 const db = require('quick.db')
 
 const client = new Discord.Client()
@@ -11,6 +11,7 @@ let week = 00;
 
 module.exports.run = async (bot, message, args) => {
 
+  try {
   function checkDays(date) {
     let now = new Date();
     let diff = now.getTime() - date.getTime();
@@ -48,16 +49,19 @@ module.exports.run = async (bot, message, args) => {
 
     let bicon = bot.user.displayAvatarURL();
     let date = bot.user.createdAt
-    let comandos = db.get(`comando_${bot.user.id}`)
 
-    let botembed = new Discord.MessageEmbed()
-    .setAuthor(`Olá, eu me chamo B R A T V A!`, bot.user.displayAvatarURL())
-    .setColor("BLUE")
-    .setThumbnail(bicon)
-    .setDescription(`<a:fixa:686684295644839966> Olá eu me chamo ${bot.user.username}, tenho 23 anos e sou um simples bot brasileiro para o Discord com vários comandos!\n\n<a:fixa:686684295644839966> Atualmente estou espalhando diversão em \*\*${bot.guilds.cache.size} servidores\*\* com \*\*${bot.commands.size} comandos\*\*. Desde ${message.channel.guild.createdAt.toUTCString().substr(0, 16)} (${checkDays(message.channel.guild.createdAt)}) venho tentanto trasnformar o mundo em um lugar melhor!\n\n<a:fixa:686684295644839966> Eu fui criado em <:js:675685205595652096> [Javascript](https://discord.js.org) utilizando <:node:686684261734023236> [node.js](https://nodejs.org).`)
-    .setTimestamp()
+    let embed = new Discord.MessageEmbed()
+    embed.setAuthor(`Olá, eu me chamo B R A T V A!`, bot.user.displayAvatarURL())
+    embed.setColor("BLUE")
+    embed.setThumbnail(bicon)
+    embed.setDescription(`<a:fixa:686684295644839966> Olá eu me chamo ${bot.user.username}, tenho 23 anos e sou um simples bot brasileiro para o Discord com vários comandos!\n\n<a:fixa:686684295644839966> Atualmente estou espalhando diversão em \*\*${bot.guilds.cache.size} servidores\*\* com \*\*${bot.commands.size} comandos\*\*. Desde ${message.channel.guild.createdAt.toUTCString().substr(0, 16)} (${checkDays(message.channel.guild.createdAt)}) venho tentanto trasnformar o mundo em um lugar melhor!\n\n<a:fixa:686684295644839966> Eu fui criado em <:js:675685205595652096> [Javascript](https://discord.js.org) utilizando <:node:686684261734023236> [node.js](https://nodejs.org).`)
+    embed.setTimestamp()
     
-    message.channel.send(botembed);
+    message.channel.send(embed);
+
+  } catch(e) {
+    message.channel.send(e)
+  }
 
 }
 
