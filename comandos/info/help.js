@@ -3,78 +3,122 @@ const fs = require("fs");
 
 module.exports.run = async(client, message, args) => {
 
+    const user = client.users.cache.get(message.author.id)
 
-    const user = client.users.get(message.author.id);
 
-    /*(let helpEmbed = new Discord.RichEmbed()
-    .setDescription(`<@${message.author.id}>, enviei no seu privado. se não estiver chegado , verifique as mensagens diretas nas configurações do servidor.`)
+    let helpEmbed = new Discord.MessageEmbed()
+    .setDescription(`<@${message.author.id}>, enviei meus comandos no seu privado. se não estiver chegado, verifique as mensagens diretas nas configurações do servidor.`)
     .setImage('https://cdn.discordapp.com/attachments/660878678993141790/662501973077000202/ezgif-6-7059be12c874.gif')
 
-    message.channel.send(helpEmbed)*/
+    message.channel.send(helpEmbed)
     
-    let menuEmbed = new Discord.RichEmbed()
+    let menuEmbed = new Discord.MessageEmbed()
 	
-	.setTitle("Help Menu")
-	.setColor('RANDOM')
-	.setDescription("Cada emote é uma opção, use as reações para ir para tal menu")
-	.addField("Reações", 'Infos = 🗒 \n Admin = 🛠 \n Diversão = 💬 \n Voltar = 👈')
-	.setFooter(`Comando solicitado por: ${message.author.username}`, message.author.avatarURL)
-	.setTimestamp();
-	
-        var embed1 = new Discord.RichEmbed()
+    
+    .setTitle(`📋Ajuda | Comandos📋`)
+    .setThumbnail(message.user.avatarURL())
+    .setDescription(`Veja todos os meus comandos...`)
+    .addField(`ADMINISTRAÇÃO - Clique 👮`, `\`\`ban, kick, unban...\`\``)
+    .addField(`DIVERSÃO - Clique 😄`, `\`\`8ball, abraçar, kill...\`\``)
+    .addField(`IMAGENS - Clique 🖼️`, `\`\`cat, dog, hello...\`\``)
+    .addField(`INFO - Clique 💡`, `\`\`ajuda, botinfo, serverinfo...\`\``)
+    .addField(`MODERAÇÃO - Clique 🔨`, `\`\`clear, prefix, lock...\`\``)
+    .addField(`VOLTAR`, `clique 🏠`)
+    .addField(`Comandos Totais:`, client.commands.size)
+    .addField(`Quer Ser Parceiro do BRATVA e Ter Funções Premiuns?`, `Basta entrar em contato com meu dono, utilizando o comando **.botinfo**`)
+    .addField(`Convite o bot para seu servidor:`, `➡️ [Direct Link](https://discordapp.com/oauth2/authorize?client_id=668922277135384586&scope=bot&permissions=8)`)
 
-        .setAuthor(`${message.author.username}`, message.author.avatarURL)
-        .setTitle("Infos comandos")
-        .setDescription("`.addemoji` **Adicione o Emoji Por Comando!**\n`.addrole` **Adicione Roles em Algum Usuário Mencionado!**\n`.avatar` **Veja o Seu ou de Outro Usuário o Avatar!**\n`.botinfo` **Informações do Bot**\n`.ping` **Veja o ping do bot** \n`.id` **Gera seu ID** \n`.avatar` **Veja seu ou o avatar de alguem!**\n`.botinfo` **Fique por dentro das informações do bot!** \n`.userinfo` **Pegue as informações do usuario!**\n`.serverinfo` **Pegue as informações do servidor!**\n`.finduser`  **Encontre um usúario!**") 
-        .setColor("RANDOM")
-        .setFooter(`${client.user.username} | Prefix: .`, client.user.avatarURL)
-		.setTimestamp();
+
+        let embedADM = new Discord.MessageEmbed()
+
+        .setTitle(`👮 ADMINISTRAÇÃO 👮`)
+        .setDescription(`\`\`ban ◻️ kick ◻️ unban ◻️ votekick\`\``)
+        .setThumbnail(message.user.avatarURL())
+        .addField(`ADMINISTRAÇÃO - Clique 👮`, `\`\`ban, kick, unban...\`\``)
+        .addField(`DIVERSÃO - Clique 😄`, `\`\`8ball, abraçar, kill...\`\``)
+        .addField(`IMAGENS - Clique 🖼️`, `\`\`cat, dog, mcskin...\`\``)
+        .addField(`INFO - Clique 💡`, `\`\`ajuda, botinfo, serverinfo...\`\``)
+        .addField(`MODERAÇÃO - Clique 🔨`, `\`\`clear, prefix, lock...\`\``)
+        .addField(`VOLTAR`, `clique 🏠`)
+
+
+		let embedDIV = new Discord.MessageEmbed()
+
+        .setTitle(`😄 DIVERSÃO 😄`)
+        .setDescription(`\`\`8ball ◻️ abraçar ◻️ kill ◻️ rps ◻️ say ◻️ ship ◻️ tiro\`\``)
+        .setThumbnail(message.user.avatarURL())
+        .addField(`ADMINISTRAÇÃO - Clique 👮`, `\`\`ban, kick, unban...\`\``)
+        .addField(`DIVERSÃO - Clique 😄`, `\`\`8ball, abraçar, kill...\`\``)
+        .addField(`IMAGENS - Clique 🖼️`, `\`\`cat, dog, mcskin...\`\``)
+        .addField(`INFO - Clique 💡`, `\`\`ajuda, botinfo, serverinfo...\`\``)
+        .addField(`MODERAÇÃO - Clique 🔨`, `\`\`clear, prefix, lock...\`\``)
+        .addField(`VOLTAR`, `clique 🏠`)
 		
-		var embed2 = new Discord.RichEmbed()
+        var embedIMG = new Discord.RichEmbed()
+        
+        .setTitle(`🖼️ IMAGENS 🖼️`)
+        .setDescription(`\`\`cat ◻️ dog ◻️ hello ◻️ mcskin\`\``)
+        .setThumbnail(message.user.avatarURL())
+        .addField(`ADMINISTRAÇÃO - Clique 👮`, `\`\`ban, kick, unban...\`\``)
+        .addField(`DIVERSÃO - Clique 😄`, `\`\`8ball, abraçar, kill...\`\``)
+        .addField(`IMAGENS - Clique 🖼️`, `\`\`cat, dog, mcskin...\`\``)
+        .addField(`INFO - Clique 💡`, `\`\`ajuda, botinfo, serverinfo...\`\``)
+        .addField(`MODERAÇÃO - Clique 🔨`, `\`\`clear, prefix, lock...\`\``)
+        .addField(`VOLTAR`, `clique 🏠`)
 
-        .setAuthor(`${message.author.username}`, message.author.avatarURL)
-        .setTitle("Admin comandos")
-        .setDescription("`.addrole` **Adicione uma tag em algúem!**\n`.takerole` **Remova a tag de algúem!**\n`.mute` **Mutar um usúario!**\n`.tempmute` **Mute um usúario por um tempo!**\n`.unmute` ** Desmute um usúario!**\n`.kick` **Expulse um usúario do servidor!**\n`.ban` **Bane um usúario do servidor!**\n`.clear` **Apague mensagens de um canal!**\n`.warn` **Avise um usúario do servidor!**\n`.lock` **Trave um chat para todos do servidor!**\n`.unlock` **Destrave um chat para todos do servidor!**") 
-        .setColor("RANDOM")
-        .setFooter(`${client.user.username} | Prefix: .`, client.user.avatarURL)
-		.setTimestamp();
-		
-		var embed3 = new Discord.RichEmbed()
 
-        .setAuthor(`${message.author.username}`, message.author.avatarURL)
-        .setTitle("Comandos de Diversão")
-        .setDescription("`.say` **Diga algo através do bot!**\n`.8ball` **Pergunte algo ao bot!**\n`.clima` **Mostra o clima em um lugar!**\n`.urban` **Obter a definição de algo**\n`.cat` **Mostra uma foto aleatória de um gato**\n`.dog` **Mostra uma foto aleatória de um cachorro**\n`.kill` **Matar alguém**") 
-        .setColor("RANDOM")
-        .setFooter(`${client.user.username} | Prefix: .`, client.user.avatarURL)
-		.setTimestamp();
+        let embedINFO = new Discord.MessageEmbed()
+
+        .setTitle(`💡 INFO 💡`)
+        .setDescription(`\`\`botinfo ◻️ botinvite ◻️ doar ◻️ id ◻️ invite ◻️ ping ◻️ recrutador ◻️ report ◻️ roleinfo ◻️ serverinfo ◻️ status ◻️ userinfo\`\``)
+        .setThumbnail(message.user.avatarURL())
+        .addField(`ADMINISTRAÇÃO - Clique 👮`, `\`\`ban, kick, unban...\`\``)
+        .addField(`DIVERSÃO - Clique 😄`, `\`\`8ball, abraçar, kill...\`\``)
+        .addField(`IMAGENS - Clique 🖼️`, `\`\`cat, dog, mcskin...\`\``)
+        .addField(`INFO - Clique 💡`, `\`\`ajuda, botinfo, serverinfo...\`\``)
+        .addField(`MODERAÇÃO - Clique 🔨`, `\`\`clear, prefix, lock...\`\``)
+        .addField(`VOLTAR`, `clique 🏠`)
+
+        
+        let embedMOD = new Discord.MessageEmbed()
+        .setTitle(`🔨 MODERAÇÃO 🔨`)
+        .setDescription(`\`\`addemoji ◻️ addrole ◻️ lock ◻️ unlock ◻️ clear ◻️ mute ◻️ prefix ◻️ finduser ◻️ permuser ◻️ warn ◻️ set-channel ◻️ set-log ◻️ say ◻️ slowmode ◻️ tempmute ◻️ unmute`)
         
         
-        message.channel.send(menuEmbed).then(async msg2 => {
+        user.send(menuEmbed).then(async msg2 => {
            
-            await msg2.react('👈');
-            await msg2.react('🗒️');
-            await msg2.react('🛠️');
-            await msg2.react('💬');
+            await msg2.react('🏠');
+            await msg2.react('👮');
+            await msg2.react('😄');
+            await msg2.react('🖼️');
+            await msg2.react('💡');
+            await msg2.react('🔨');
             await msg2.react('❌');
 
  async function coletor() {
-  const collector = msg2.createReactionCollector((r, u) => (r.emoji.name === '🗒️' || r.emoji.name === '🛠️' || r.emoji.name === '💬' || r.emoji.name === '👈' || r.emoji.name === '❌') && u.id === message.author.id)
+  const collector = msg2.createReactionCollector((r, u) => (r.emoji.name === '🏠' || r.emoji.name === '👮' || r.emoji.name === '😄' || r.emoji.name === '🖼️' || r.emoji.name === '💡' || r.emoji.name === '🔨' || r.emoji.name === '❌') && u.id === message.author.id)
   collector.on("collect", async (r, u, em) => {
     let reaction = await msg2.reactions.find(val => val.name = r.emoji.name)
     
-    r.remove(r.users.filter(u => u === message.author).first());
+    //r.remove(r.users.filter(u => u === message.author).first());
             switch (r.emoji.name) {
-            case '🗒️':
-            r.message.edit(embed1)
-            break;
-            case '🛠️': 
-            r.message.edit(embed2)
-            break;
-            case '💬': 
-            r.message.edit(embed3)
-            break;
-            case '👈': 
+            case '🏠':
             r.message.edit(menuEmbed)
+            break;
+            case '👮': 
+            r.message.edit(embedADM)
+            break;
+            case '😄': 
+            r.message.edit(embedDIV)
+            break;
+            case '🖼️':
+                r.message.edit(embedIMG)
+                break;
+            case '💡':
+                r.message.edit(embedINFO)
+                break;
+            case '🔨': 
+            r.message.edit(embedMOD)
             break;
             case '❌':
             r.message.delete()
@@ -87,6 +131,6 @@ module.exports.run = async(client, message, args) => {
 }
         
 module.exports.help = {
-    name: "help",
-    aliases: ["ajuda", "bed"]
+    name: "ajuda",
+    aliases: []
 }

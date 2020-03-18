@@ -2,7 +2,6 @@ const config = require("../config.json");
 const fs = require('fs')
 const ms = require('ms')
 const db = require('quick.db')
-const { database } = require('../banco.js')
 
 var cooldown = new Set()
 const map = new Map();
@@ -24,12 +23,6 @@ module.exports = (client, message) => {
 
     if(!message.content.startsWith(prefix)) return;
 
-    //if(message.content.startsWith(`<@${message.bot.id}>` || `<@!${message.bot.id}>`)) return message.channel.send(`testando`)
-    
-    let opts = {
-      dev:'292708406278619136',
-      map:map
-   }
 
     let args = message.content.slice(prefix.length).trim().split(/ +/g);
     let cmd = args.shift().toLowerCase();
@@ -39,7 +32,7 @@ module.exports = (client, message) => {
     if(user == true) return message.channel.send(`<@${message.author.id}> | Você foi banido de usar meus comandos!`)
   
     if (cooldown.has(message.author.id)) 
-    return message.reply("Espere 3 segundos para usar outro comando!").then(m => m.delete(1000))
+    return message.reply("Espere 3 segundos para usar outro comando!").then(m => m.delete({ timeout: 1000, reason: 'muitos comandos' }))
     else cooldown.add(message.author.id)
  
     /*if (client.commands.get(cmd)) {
@@ -57,7 +50,7 @@ module.exports = (client, message) => {
   }, 3000)
 
   if (command)
-  command.run(client, message, args, opts, database);
+  command.run(client, message, args);
   /*try {
     commandfile.run(client, message, args, prefix);
   
