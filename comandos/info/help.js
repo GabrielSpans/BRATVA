@@ -18,28 +18,31 @@ module.exports.run = async(client, message, args) => {
     .setTitle(`📋Ajuda | Comandos📋`)
     .setThumbnail(client.user.displayAvatarURL())
     .setDescription(`Veja todos os meus comandos...`)
-    .addField(`ADMINISTRAÇÃO - Clique 👮`, `\`\`ban, kick, unban...\`\``)
-    .addField(`DIVERSÃO - Clique 😄`, `\`\`8ball, abraçar, kill...\`\``)
-    .addField(`IMAGENS - Clique 🖼️`, `\`\`cat, dog, hello...\`\``)
-    .addField(`INFO - Clique 💡`, `\`\`ajuda, botinfo, serverinfo...\`\``)
-    .addField(`MODERAÇÃO - Clique 🔨`, `\`\`clear, prefix, lock...\`\``)
-    .addField(`VOLTAR`, `clique 🏠`)
-    .addField(`Comandos Totais:`, client.commands.size)
-    .addField(`Quer Ser Parceiro do BRATVA e Ter Funções Premiuns?`, `Basta entrar em contato com meu dono, utilizando o comando **.botinfo**`)
-    .addField(`Convite o bot para seu servidor:`, `➡️ [Direct Link](https://discordapp.com/oauth2/authorize?client_id=668922277135384586&scope=bot&permissions=8)`)
-
+    .addFields(
+        { name: 'ADMINISTRAÇÃO - Clique 👮', value: '\`\`ban, kick, unban...\`\`' },
+        { name: 'DIVERSÃO - Clique 😄', value: '\`\`8ball, abraçar, kill...\`\`' },
+        { name: 'IMAGENS - Clique 🖼️', value: '\`\`cat, dog, hello...\`\`' },
+        { name: 'INFO - Clique 💡', value: '\`\`ajuda, botinfo, serverinfo...\`\`' },
+        { name: 'MODERAÇÃO - Clique 🔨', value: '\`\`clear, prefix, lock...\`\`' },
+        { name: 'VOLTAR', value: 'clique 🏠' },
+        { name: 'Comandos Totais:', value: `${client.commands.size}` },
+        { name: 'Quer Ser Parceiro do BRATVA e Ter Funções Premiuns?', value: 'Basta entrar em contato com meu dono, utilizando o comando **.botinfo**' },
+        { name: 'Convite o bot para seu servidor:', value: '➡️ [Direct Link](https://discordapp.com/oauth2/authorize?client_id=668922277135384586&scope=bot&permissions=8)' },
+    )
 
         let embedADM = new Discord.MessageEmbed()
 
         .setTitle(`👮 ADMINISTRAÇÃO 👮`)
         .setDescription(`\`\`ban ◻️ kick ◻️ unban ◻️ votekick\`\``)
         .setThumbnail(client.user.displayAvatarURL())
-        .addField(`ADMINISTRAÇÃO - Clique 👮`, `\`\`ban, kick, unban...\`\``)
-        .addField(`DIVERSÃO - Clique 😄`, `\`\`8ball, abraçar, kill...\`\``)
-        .addField(`IMAGENS - Clique 🖼️`, `\`\`cat, dog, mcskin...\`\``)
-        .addField(`INFO - Clique 💡`, `\`\`ajuda, botinfo, serverinfo...\`\``)
-        .addField(`MODERAÇÃO - Clique 🔨`, `\`\`clear, prefix, lock...\`\``)
-        .addField(`VOLTAR`, `clique 🏠`)
+        .addFields(
+            { name: 'ADMINISTRAÇÃO - Clique 👮', value: '\`\`ban, kick, unban...\`\`' },
+            { name: 'DIVERSÃO - Clique 😄', value: '\`\`8ball, abraçar, kill...\`\`' },
+            { name: 'IMAGENS - Clique 🖼️', value: '\`\`cat, dog, hello...\`\`' },
+            { name: 'INFO - Clique 💡', value: '\`\`ajuda, botinfo, serverinfo...\`\`' },
+            { name: 'MODERAÇÃO - Clique 🔨', value: '\`\`clear, prefix, lock...\`\`' },
+            { name: 'VOLTAR', value: 'clique 🏠' },
+        )
 
 
 		let embedDIV = new Discord.MessageEmbed()
@@ -47,49 +50,56 @@ module.exports.run = async(client, message, args) => {
         .setTitle(`😄 DIVERSÃO 😄`)
         .setDescription(`\`\`8ball ◻️ abraçar ◻️ kill ◻️ rps ◻️ say ◻️ ship ◻️ tiro\`\``)
         .setThumbnail(client.user.displayAvatarURL())
-        .addField(`ADMINISTRAÇÃO - Clique 👮`, `\`\`ban, kick, unban...\`\``)
-        .addField(`DIVERSÃO - Clique 😄`, `\`\`8ball, abraçar, kill...\`\``)
-        .addField(`IMAGENS - Clique 🖼️`, `\`\`cat, dog, mcskin...\`\``)
-        .addField(`INFO - Clique 💡`, `\`\`ajuda, botinfo, serverinfo...\`\``)
-        .addField(`MODERAÇÃO - Clique 🔨`, `\`\`clear, prefix, lock...\`\``)
-        .addField(`VOLTAR`, `clique 🏠`)
+        .addFields(
+            { name: 'ADMINISTRAÇÃO - Clique 👮', value: '\`\`ban, kick, unban...\`\`' },
+            { name: 'DIVERSÃO - Clique 😄', value: '\`\`8ball, abraçar, kill...\`\`' },
+            { name: 'IMAGENS - Clique 🖼️', value: '\`\`cat, dog, hello...\`\`' },
+            { name: 'INFO - Clique 💡', value: '\`\`ajuda, botinfo, serverinfo...\`\`' },
+            { name: 'MODERAÇÃO - Clique 🔨', value: '\`\`clear, prefix, lock...\`\`' },
+            { name: 'VOLTAR', value: 'clique 🏠' },
+        )
 		
         var embedIMG = new Discord.RichEmbed()
         
         .setTitle(`🖼️ IMAGENS 🖼️`)
         .setDescription(`\`\`cat ◻️ dog ◻️ hello ◻️ mcskin\`\``)
         .setThumbnail(client.user.displayAvatarURL())
-        .addField(`ADMINISTRAÇÃO - Clique 👮`, `\`\`ban, kick, unban...\`\``)
-        .addField(`DIVERSÃO - Clique 😄`, `\`\`8ball, abraçar, kill...\`\``)
-        .addField(`IMAGENS - Clique 🖼️`, `\`\`cat, dog, mcskin...\`\``)
-        .addField(`INFO - Clique 💡`, `\`\`ajuda, botinfo, serverinfo...\`\``)
-        .addField(`MODERAÇÃO - Clique 🔨`, `\`\`clear, prefix, lock...\`\``)
-        .addField(`VOLTAR`, `clique 🏠`)
-
+        .addFields(
+            { name: 'ADMINISTRAÇÃO - Clique 👮', value: '\`\`ban, kick, unban...\`\`' },
+            { name: 'DIVERSÃO - Clique 😄', value: '\`\`8ball, abraçar, kill...\`\`' },
+            { name: 'IMAGENS - Clique 🖼️', value: '\`\`cat, dog, hello...\`\`' },
+            { name: 'INFO - Clique 💡', value: '\`\`ajuda, botinfo, serverinfo...\`\`' },
+            { name: 'MODERAÇÃO - Clique 🔨', value: '\`\`clear, prefix, lock...\`\`' },
+            { name: 'VOLTAR', value: 'clique 🏠' },
+        )
 
         let embedINFO = new Discord.MessageEmbed()
 
         .setTitle(`💡 INFO 💡`)
         .setDescription(`\`\`botinfo ◻️ botinvite ◻️ doar ◻️ id ◻️ invite ◻️ ping ◻️ recrutador ◻️ report ◻️ roleinfo ◻️ serverinfo ◻️ status ◻️ userinfo\`\``)
         .setThumbnail(client.user.displayAvatarURL())
-        .addField(`ADMINISTRAÇÃO - Clique 👮`, `\`\`ban, kick, unban...\`\``)
-        .addField(`DIVERSÃO - Clique 😄`, `\`\`8ball, abraçar, kill...\`\``)
-        .addField(`IMAGENS - Clique 🖼️`, `\`\`cat, dog, mcskin...\`\``)
-        .addField(`INFO - Clique 💡`, `\`\`ajuda, botinfo, serverinfo...\`\``)
-        .addField(`MODERAÇÃO - Clique 🔨`, `\`\`clear, prefix, lock...\`\``)
-        .addField(`VOLTAR`, `clique 🏠`)
+        .addFields(
+            { name: 'ADMINISTRAÇÃO - Clique 👮', value: '\`\`ban, kick, unban...\`\`' },
+            { name: 'DIVERSÃO - Clique 😄', value: '\`\`8ball, abraçar, kill...\`\`' },
+            { name: 'IMAGENS - Clique 🖼️', value: '\`\`cat, dog, hello...\`\`' },
+            { name: 'INFO - Clique 💡', value: '\`\`ajuda, botinfo, serverinfo...\`\`' },
+            { name: 'MODERAÇÃO - Clique 🔨', value: '\`\`clear, prefix, lock...\`\`' },
+            { name: 'VOLTAR', value: 'clique 🏠' },
+        )
 
         
         let embedMOD = new Discord.MessageEmbed()
         .setTitle(`🔨 MODERAÇÃO 🔨`)
         .setDescription(`\`\`addemoji ◻️ addrole ◻️ lock ◻️ unlock ◻️ clear ◻️ mute ◻️ prefix ◻️ finduser ◻️ permuser ◻️ warn ◻️ set-channel ◻️ set-log ◻️ say ◻️ slowmode ◻️ tempmute ◻️ unmute`)
         .setThumbnail(client.user.displayAvatarURL())
-        .addField(`ADMINISTRAÇÃO - Clique 👮`, `\`\`ban, kick, unban...\`\``)
-        .addField(`DIVERSÃO - Clique 😄`, `\`\`8ball, abraçar, kill...\`\``)
-        .addField(`IMAGENS - Clique 🖼️`, `\`\`cat, dog, mcskin...\`\``)
-        .addField(`INFO - Clique 💡`, `\`\`ajuda, botinfo, serverinfo...\`\``)
-        .addField(`MODERAÇÃO - Clique 🔨`, `\`\`clear, prefix, lock...\`\``)
-        .addField(`VOLTAR`, `clique 🏠`)
+        .addFields(
+            { name: 'ADMINISTRAÇÃO - Clique 👮', value: '\`\`ban, kick, unban...\`\`' },
+            { name: 'DIVERSÃO - Clique 😄', value: '\`\`8ball, abraçar, kill...\`\`' },
+            { name: 'IMAGENS - Clique 🖼️', value: '\`\`cat, dog, hello...\`\`' },
+            { name: 'INFO - Clique 💡', value: '\`\`ajuda, botinfo, serverinfo...\`\`' },
+            { name: 'MODERAÇÃO - Clique 🔨', value: '\`\`clear, prefix, lock...\`\`' },
+            { name: 'VOLTAR', value: 'clique 🏠' },
+        )
         
         user.send(menuEmbed).then(async msg2 => {
            
