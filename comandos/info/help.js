@@ -16,7 +16,7 @@ module.exports.run = async(client, message, args) => {
 	
     
     .setTitle(`📋Ajuda | Comandos📋`)
-    .setThumbnail(message.user.avatarURL())
+    .setThumbnail(message.bot.avatarURL())
     .setDescription(`Veja todos os meus comandos...`)
     .addField(`ADMINISTRAÇÃO - Clique 👮`, `\`\`ban, kick, unban...\`\``)
     .addField(`DIVERSÃO - Clique 😄`, `\`\`8ball, abraçar, kill...\`\``)
@@ -33,7 +33,7 @@ module.exports.run = async(client, message, args) => {
 
         .setTitle(`👮 ADMINISTRAÇÃO 👮`)
         .setDescription(`\`\`ban ◻️ kick ◻️ unban ◻️ votekick\`\``)
-        .setThumbnail(message.user.avatarURL())
+        .setThumbnail(message.bot.avatarURL())
         .addField(`ADMINISTRAÇÃO - Clique 👮`, `\`\`ban, kick, unban...\`\``)
         .addField(`DIVERSÃO - Clique 😄`, `\`\`8ball, abraçar, kill...\`\``)
         .addField(`IMAGENS - Clique 🖼️`, `\`\`cat, dog, mcskin...\`\``)
@@ -46,7 +46,7 @@ module.exports.run = async(client, message, args) => {
 
         .setTitle(`😄 DIVERSÃO 😄`)
         .setDescription(`\`\`8ball ◻️ abraçar ◻️ kill ◻️ rps ◻️ say ◻️ ship ◻️ tiro\`\``)
-        .setThumbnail(message.user.avatarURL())
+        .setThumbnail(message.bot.avatarURL())
         .addField(`ADMINISTRAÇÃO - Clique 👮`, `\`\`ban, kick, unban...\`\``)
         .addField(`DIVERSÃO - Clique 😄`, `\`\`8ball, abraçar, kill...\`\``)
         .addField(`IMAGENS - Clique 🖼️`, `\`\`cat, dog, mcskin...\`\``)
@@ -58,7 +58,7 @@ module.exports.run = async(client, message, args) => {
         
         .setTitle(`🖼️ IMAGENS 🖼️`)
         .setDescription(`\`\`cat ◻️ dog ◻️ hello ◻️ mcskin\`\``)
-        .setThumbnail(message.user.avatarURL())
+        .setThumbnail(message.bot.avatarURL())
         .addField(`ADMINISTRAÇÃO - Clique 👮`, `\`\`ban, kick, unban...\`\``)
         .addField(`DIVERSÃO - Clique 😄`, `\`\`8ball, abraçar, kill...\`\``)
         .addField(`IMAGENS - Clique 🖼️`, `\`\`cat, dog, mcskin...\`\``)
@@ -71,7 +71,7 @@ module.exports.run = async(client, message, args) => {
 
         .setTitle(`💡 INFO 💡`)
         .setDescription(`\`\`botinfo ◻️ botinvite ◻️ doar ◻️ id ◻️ invite ◻️ ping ◻️ recrutador ◻️ report ◻️ roleinfo ◻️ serverinfo ◻️ status ◻️ userinfo\`\``)
-        .setThumbnail(message.user.avatarURL())
+        .setThumbnail(message.bot.avatarURL())
         .addField(`ADMINISTRAÇÃO - Clique 👮`, `\`\`ban, kick, unban...\`\``)
         .addField(`DIVERSÃO - Clique 😄`, `\`\`8ball, abraçar, kill...\`\``)
         .addField(`IMAGENS - Clique 🖼️`, `\`\`cat, dog, mcskin...\`\``)
@@ -83,7 +83,13 @@ module.exports.run = async(client, message, args) => {
         let embedMOD = new Discord.MessageEmbed()
         .setTitle(`🔨 MODERAÇÃO 🔨`)
         .setDescription(`\`\`addemoji ◻️ addrole ◻️ lock ◻️ unlock ◻️ clear ◻️ mute ◻️ prefix ◻️ finduser ◻️ permuser ◻️ warn ◻️ set-channel ◻️ set-log ◻️ say ◻️ slowmode ◻️ tempmute ◻️ unmute`)
-        
+        .setThumbnail(message.bot.avatarURL())
+        .addField(`ADMINISTRAÇÃO - Clique 👮`, `\`\`ban, kick, unban...\`\``)
+        .addField(`DIVERSÃO - Clique 😄`, `\`\`8ball, abraçar, kill...\`\``)
+        .addField(`IMAGENS - Clique 🖼️`, `\`\`cat, dog, mcskin...\`\``)
+        .addField(`INFO - Clique 💡`, `\`\`ajuda, botinfo, serverinfo...\`\``)
+        .addField(`MODERAÇÃO - Clique 🔨`, `\`\`clear, prefix, lock...\`\``)
+        .addField(`VOLTAR`, `clique 🏠`)
         
         user.send(menuEmbed).then(async msg2 => {
            
