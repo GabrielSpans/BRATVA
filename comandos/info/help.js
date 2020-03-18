@@ -15,10 +15,10 @@ module.exports.run = async(client, message, args) => {
     let menuEmbed = new Discord.MessageEmbed()
 	
     
-    .setTitle(`📋Ajuda | Comandos📋`)
-    .setThumbnail(client.user.displayAvatarURL())
-    .setDescription(`Veja todos os meus comandos...`)
-    .addFields(
+    menuEmbed.setTitle(`📋Ajuda | Comandos📋`)
+    menuEmbed.setThumbnail(client.user.displayAvatarURL())
+    menuEmbed.setDescription(`Veja todos os meus comandos...`)
+    menuEmbed.addFields(
         { name: 'ADMINISTRAÇÃO - Clique 👮', value: '\`\`ban, kick, unban...\`\`' },
         { name: 'DIVERSÃO - Clique 😄', value: '\`\`8ball, abraçar, kill...\`\`' },
         { name: 'IMAGENS - Clique 🖼️', value: '\`\`cat, dog, hello...\`\`' },
@@ -32,10 +32,10 @@ module.exports.run = async(client, message, args) => {
 
         let embedADM = new Discord.MessageEmbed()
 
-        .setTitle(`👮 ADMINISTRAÇÃO 👮`)
-        .setDescription(`\`\`ban ◻️ kick ◻️ unban ◻️ votekick\`\``)
-        .setThumbnail(client.user.displayAvatarURL())
-        .addFields(
+        embedADM.setTitle(`👮 ADMINISTRAÇÃO 👮`)
+        embedADM.setDescription(`\`\`ban ◻️ kick ◻️ unban ◻️ votekick\`\``)
+        embedADM.setThumbnail(client.user.displayAvatarURL())
+        embedADM.addFields(
             { name: 'ADMINISTRAÇÃO - Clique 👮', value: '\`\`ban, kick, unban...\`\`' },
             { name: 'DIVERSÃO - Clique 😄', value: '\`\`8ball, abraçar, kill...\`\`' },
             { name: 'IMAGENS - Clique 🖼️', value: '\`\`cat, dog, hello...\`\`' },
@@ -47,10 +47,10 @@ module.exports.run = async(client, message, args) => {
 
 		let embedDIV = new Discord.MessageEmbed()
 
-        .setTitle(`😄 DIVERSÃO 😄`)
-        .setDescription(`\`\`8ball ◻️ abraçar ◻️ kill ◻️ rps ◻️ say ◻️ ship ◻️ tiro\`\``)
-        .setThumbnail(client.user.displayAvatarURL())
-        .addFields(
+        embedDIV.setTitle(`😄 DIVERSÃO 😄`)
+        embedDIV.setDescription(`\`\`8ball ◻️ abraçar ◻️ kill ◻️ rps ◻️ say ◻️ ship ◻️ tiro\`\``)
+        embedDIV.setThumbnail(client.user.displayAvatarURL())
+        embedDIV.addFields(
             { name: 'ADMINISTRAÇÃO - Clique 👮', value: '\`\`ban, kick, unban...\`\`' },
             { name: 'DIVERSÃO - Clique 😄', value: '\`\`8ball, abraçar, kill...\`\`' },
             { name: 'IMAGENS - Clique 🖼️', value: '\`\`cat, dog, hello...\`\`' },
@@ -59,12 +59,12 @@ module.exports.run = async(client, message, args) => {
             { name: 'VOLTAR', value: 'clique 🏠' },
         )
 		
-        var embedIMG = new Discord.RichEmbed()
+        var embedIMG = new Discord.MessageEmbed()
         
-        .setTitle(`🖼️ IMAGENS 🖼️`)
-        .setDescription(`\`\`cat ◻️ dog ◻️ hello ◻️ mcskin\`\``)
-        .setThumbnail(client.user.displayAvatarURL())
-        .addFields(
+        embedIMG.setTitle(`🖼️ IMAGENS 🖼️`)
+        embedIMG.setDescription(`\`\`cat ◻️ dog ◻️ hello ◻️ mcskin\`\``)
+        embedIMG.setThumbnail(client.user.displayAvatarURL())
+        embedIMG.addFields(
             { name: 'ADMINISTRAÇÃO - Clique 👮', value: '\`\`ban, kick, unban...\`\`' },
             { name: 'DIVERSÃO - Clique 😄', value: '\`\`8ball, abraçar, kill...\`\`' },
             { name: 'IMAGENS - Clique 🖼️', value: '\`\`cat, dog, hello...\`\`' },
@@ -75,10 +75,10 @@ module.exports.run = async(client, message, args) => {
 
         let embedINFO = new Discord.MessageEmbed()
 
-        .setTitle(`💡 INFO 💡`)
-        .setDescription(`\`\`botinfo ◻️ botinvite ◻️ doar ◻️ id ◻️ invite ◻️ ping ◻️ recrutador ◻️ report ◻️ roleinfo ◻️ serverinfo ◻️ status ◻️ userinfo\`\``)
-        .setThumbnail(client.user.displayAvatarURL())
-        .addFields(
+        embedINFO.setTitle(`💡 INFO 💡`)
+        embedINFO.setDescription(`\`\`botinfo ◻️ botinvite ◻️ doar ◻️ id ◻️ invite ◻️ ping ◻️ recrutador ◻️ report ◻️ roleinfo ◻️ serverinfo ◻️ status ◻️ userinfo\`\``)
+        embedINFO.setThumbnail(client.user.displayAvatarURL())
+        embedINFO.addFields(
             { name: 'ADMINISTRAÇÃO - Clique 👮', value: '\`\`ban, kick, unban...\`\`' },
             { name: 'DIVERSÃO - Clique 😄', value: '\`\`8ball, abraçar, kill...\`\`' },
             { name: 'IMAGENS - Clique 🖼️', value: '\`\`cat, dog, hello...\`\`' },
@@ -89,10 +89,10 @@ module.exports.run = async(client, message, args) => {
 
         
         let embedMOD = new Discord.MessageEmbed()
-        .setTitle(`🔨 MODERAÇÃO 🔨`)
-        .setDescription(`\`\`addemoji ◻️ addrole ◻️ lock ◻️ unlock ◻️ clear ◻️ mute ◻️ prefix ◻️ finduser ◻️ permuser ◻️ warn ◻️ set-channel ◻️ set-log ◻️ say ◻️ slowmode ◻️ tempmute ◻️ unmute`)
-        .setThumbnail(client.user.displayAvatarURL())
-        .addFields(
+        embedMOD.setTitle(`🔨 MODERAÇÃO 🔨`)
+        embedMOD.setDescription(`\`\`addemoji ◻️ addrole ◻️ lock ◻️ unlock ◻️ clear ◻️ mute ◻️ prefix ◻️ finduser ◻️ permuser ◻️ warn ◻️ set-channel ◻️ set-log ◻️ say ◻️ slowmode ◻️ tempmute ◻️ unmute\`\``)
+        embedMOD.setThumbnail(client.user.displayAvatarURL())
+        embedMOD.addFields(
             { name: 'ADMINISTRAÇÃO - Clique 👮', value: '\`\`ban, kick, unban...\`\`' },
             { name: 'DIVERSÃO - Clique 😄', value: '\`\`8ball, abraçar, kill...\`\`' },
             { name: 'IMAGENS - Clique 🖼️', value: '\`\`cat, dog, hello...\`\`' },
@@ -114,7 +114,7 @@ module.exports.run = async(client, message, args) => {
  async function coletor() {
   const collector = msg2.createReactionCollector((r, u) => (r.emoji.name === '🏠' || r.emoji.name === '👮' || r.emoji.name === '😄' || r.emoji.name === '🖼️' || r.emoji.name === '💡' || r.emoji.name === '🔨' || r.emoji.name === '❌') && u.id === message.author.id)
   collector.on("collect", async (r, u, em) => {
-    let reaction = await msg2.reactions.find(val => val.name = r.emoji.name)
+    let reaction = await msg2.reactions.cache.find(val => val.name = r.emoji.name)
     
     //r.remove(r.users.filter(u => u === message.author).first());
             switch (r.emoji.name) {
