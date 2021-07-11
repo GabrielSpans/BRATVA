@@ -15,7 +15,6 @@ const db = low(adapter)
 const moment = require("moment")
 moment.locale("pt-BR")
 
-
 var firebaseConfig = {
   apiKey: "AIzaSyBEiBwf7tbYOjtghAp0VF-mRDxF7_-O_k4",
   authDomain: "bratva-cfed9.firebaseapp.com",
